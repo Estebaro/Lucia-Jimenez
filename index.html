@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Lucía Jiménez | Clases de Baile, Shows y Coaching Profesional</title>
+
+    <meta name="description"
+          content="Lucía Jiménez, bailarina profesional en Costa Rica. Clases de baile, shows para eventos, coaching artístico y marketing digital.">
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Lucía Jiménez">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lucía Jiménez | Marca Personal Profesional">
+    <meta property="og:description" content="Clases de baile, shows y coaching profesional.">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.tudominio.com/">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Lucía Jiménez",
+      "jobTitle": "Bailarina Profesional y Coach",
+      "url": "https://www.tudominio.com",
+      "sameAs": [
+        "https://www.instagram.com/tu-perfil",
+        "https://www.facebook.com/tu-perfil"
+      ]
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Lucía Jiménez</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+			<li><a href="timeline.html">Trayectoria</a></li>
+			<li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    </nav>
+</header>
+
+<main>
+
+<section id="hero">
+    <h1>Lucia Jimenez</h1>
+    <p>Clases, shows y coaching artístico en Costa Rica</p>
+	</br>
+    <a href="#contacto" class="cta-button">Contáctame</a>
+</section>
+
+<section id="contacto">
+    <h2>Contáctame</h2>
+    <p>Cuéntame qué servicio deseas cotizar</p>
+
+    <form id="contact-form" aria-label="Formulario de contacto">
+        <label for="service">Servicio a cotizar</label>
+		<select id="servicio" name="servicio" required>
+			<option value="">Seleccione un servicio</option>
+			<option value="clases">Clases presenciales</option>
+			<option value="shows">Shows de baile</option>
+			<option value="montaje">Montaje coreográfico</option>
+			<option value="coaching">Asesoría y coaching</option>
+		</select>
+
+        <label for="name">Nombre</label>
+        <input type="text" id="name" required autocomplete="name">
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" required autocomplete="email">
+
+        <label for="message">Mensaje</label>
+        <textarea id="message"></textarea>
+
+        <button type="submit">Enviar por WhatsApp</button>
+		<button type="submit">Enviar por Correo</button>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <div class="social-links">
+        <h3>Sígueme</h3>
+        <a href="https://facebook.com/tu-perfil" target="_blank">Facebook</a>
+        <a href="https://instagram.com/tu-perfil" target="_blank">Instagram</a>
+    </div>
+    <p>&copy; 2026 Lucía Jiménez</p>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/50683881111"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Contacto por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path fill="currentColor"
+              d="M16 3C9.37 3 4 8.04 4 14.27c0 2.48.86 4.78 2.33 6.64L5 29l8.31-1.99c1.03.28 2.11.43 3.24.43 6.63 0 12-5.04 12-11.27C28.55 8.04 22.63 3 16 3z"/>
+    </svg>
+</a>
+
+<script src="script.js" defer></script>
+</body>
+</html>

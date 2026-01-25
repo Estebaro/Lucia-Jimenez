@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Profesional | Lucía Jiménez</title>
+    <meta name="description" content="Descubre la trayectoria profesional de Lucía Jiménez, bailarina destacada. Desde sus inicios hasta sus logros más recientes en shows, clases y eventos de danza.">
+    <meta name="keywords" content="Lucía Jiménez, bailarina, danza, timeline profesional, shows de baile, clases de danza, eventos corporativos">
+    <meta name="author" content="Lucía Jiménez">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Timeline Profesional | Lucía Jiménez">
+    <meta property="og:description" content="Explora la carrera de Lucía Jiménez a través de su timeline profesional.">
+    <meta property="og:image" content="img/og-timeline.jpg"> <!-- Reemplaza con imagen real -->
+    <meta property="og:url" content="https://www.luciajimenez.com/timeline.html">
+    <meta property="og:type" content="website">
+    <!-- Schema.org para SEO (Persona y Eventos) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lucía Jiménez",
+        "jobTitle": "Bailarina Profesional",
+        "description": "Bailarina especializada en danza contemporánea, con experiencia en shows, clases y eventos.",
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Bailarina",
+            "occupationLocation": {
+                "@type": "City",
+                "name": "Madrid, España"
+            }
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Escuela Nacional de Danza"
+        },
+        "knowsAbout": ["Danza Contemporánea", "Ballet", "Coreografía"],
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certificación en Danza Profesional"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.luciajimenez.com/timeline.html"
+        }
+    }
+    </script>
+    <!-- Preconnect para optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Favicon (agrega uno real) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Reset básico y mejores prácticas de accesibilidad */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Skip link para accesibilidad */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #f8b500;
+            color: #000;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header y Nav (consistente con galería) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #f8b500;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a:focus {
+            color: #f8b500;
+            outline: 2px solid #f8b500;
+            outline-offset: 2px;
+        }
+
+        /* Main */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timeline-section h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            text-align: center;
+            color: #f8b500;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .timeline-section p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 3rem;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: #f8b500;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            z-index: 1;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: inherit;
+            width: 50%;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background: #f8b500;
+            border: 4px solid #1a1a1a;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Dancing Script', cursive;
+            color: #f8b500;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: #ccc;
+        }
+
+        .timeline-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            color: #ccc;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item.left, .timeline-item.right {
+                left: 0;
+            }
+
+            .timeline-item::after, .timeline-item.right::after {
+                left: 15px;
+            }
+
+            .timeline-item.right::after {
+                left: 15px;
+            }
+
+            .nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .timeline-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <header>
+        <nav class="nav">
+            <div class="logo">Lucía Jiménez</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="timeline-section">
+            <h1>Timeline Profesional</h1>
+            <p>Explora los hitos clave en la carrera de Lucía Jiménez, desde sus inicios hasta sus logros más recientes.</p>
+
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2015: Inicio en la Danza</h3>
+                        <p>Comenzó su formación en la Escuela Nacional de Danza, especializándose en ballet clásico y contemporáneo.</p>
+                        <img src="img/timeline1.jpg" alt="Lucía en sus primeros años de formación en danza" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2018: Primer Show Profesional</h3>
+                        <p>Participó en su primer espectáculo profesional en el Teatro Real de Madrid, recibiendo elogios por su coreografía.</p>
+                        <img src="img/timeline2.jpg" alt="Lucía en su primer show profesional" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2020: Clases en Línea Durante la Pandemia</h3>
+                        <p>Adaptándose a los tiempos, comenzó a impartir clases virtuales, llegando a estudiantes de todo el mundo.</p>
+                        <img src="img/timeline3.jpg" alt="Clases en línea de Lucía durante la pandemia" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2022: Premio Nacional de Danza</h3>
+                        <p>Ganó el Premio Nacional de Danza Contemporánea por su innovadora coreografía en "Sueños de Movimiento".</p>
+                        <img src="img/timeline4.jpg" alt="Lucía recibiendo el Premio Nacional de Danza" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2024: Eventos Corporativos</h3>
+                        <p>Expandió su carrera a eventos corporativos, ofreciendo performances personalizadas para empresas.</p>
+                        <img src="img/timeline5.jpg" alt="Lucía en un evento corporativo" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2026: Futuros Proyectos</h3>
+                        <p>Preparándose para una gira internacional y el lanzamiento de su propio estudio de danza.</p>
+                        <img src="img/timeline6.jpg" alt="Lucía planeando futuros proyectos" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Lucía Jiménez. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // JavaScript vanilla para animaciones y accesibilidad (mejores prácticas de ciberseguridad: no eval, no innerHTML dinámico)
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            // Función para animar al hacer scroll (usando Intersection Observer para rendimiento)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Navegación por teclado para accesibilidad
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    // Asegurar foco visible
+                    document.body.style.outline = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

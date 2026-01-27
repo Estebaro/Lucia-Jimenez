@@ -7,8 +7,239 @@
 
     <meta name="description" content="Clases presenciales, shows de baile, montaje coreográfico y asesoría profesional con Lucía Jiménez. Servicios para eventos, bodas y formación artística.">
 
-    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Fuentes para consistencia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET Y VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #007bff;
+            --secondary: #ff69b4;
+            --text: #333;
+            --bg: #f9f9f9;
+            --font: 'Roboto', sans-serif;
+            --dark-bg: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            --accent: #f8b500;
+            --black: #000;
+            --white: #fff;
+        }
+
+        /* ===== ESTILOS GENERALES ===== */
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header y Nav (Fondo negro, tipografía naranja) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            border: none;
+        }
+
+        /* Main y Contenido */
+        main {
+            margin-top: 80px; /* Espacio para header fijo */
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-servicios {
+            text-align: center;
+            padding: 60px 20px;
+            background: #f5f5f5;
+            color: var(--black);
+        }
+
+        .hero-servicios h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .hero-servicios p {
+            color: var(--black);
+        }
+
+        .servicios {
+            padding: 60px 20px;
+            color: var(--black);
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .servicio-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            color: var(--black);
+        }
+
+        .servicio-card h2 {
+            margin-bottom: 5px;
+            color: var(--black);
+        }
+
+        .servicio-subtitulo {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .servicio-card p, .servicio-card ul {
+            color: var(--black);
+        }
+
+        .servicio-card ul {
+            padding-left: 18px;
+            margin: 15px 0;
+        }
+
+        .btn-servicio {
+            margin-top: auto;
+            text-align: center;
+            padding: 12px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-servicio:hover {
+            background: #333;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .footer-social {
+            margin-bottom: 15px;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .footer-social svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* WhatsApp Flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* ===== RESPONSIVIDAD ===== */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .hero-servicios h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -16,11 +247,13 @@
     <nav class="nav">
         <div class="logo">Lucía Jiménez</div>
         <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="servicios.html" class="active">Servicios</a></li>
-			            <li><a href="galeria.html">Galeria</a></li>
-			<li><a href="timeline.html">Trayectoria</a></li>
-            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="timeline.html">Trayectoria</a></li>
+            <li><a href="galeriavideos.html">Videos</a></li>
+            <li><a href="preguntasfrecuentes.html">Preguntas Frecuentes</a></li>
+            <li><a href="calculadoraservicios.html">Calculadora de servicios</a></li>
+            <li><a href="index.html">Contacto</a></li>
         </ul>
         <button class="menu-toggle" aria-label="Abrir menú">☰</button>
     </nav>
@@ -52,8 +285,8 @@
                 <li>Todos los niveles</li>
             </ul>
             <a href="index.html#contacto?servicio=clases" class="btn-servicio">
-    Cotizar clases
-</a>
+                Cotizar clases
+            </a>
         </article>
 
         <!-- Servicio 2 -->
@@ -69,9 +302,9 @@
                 <li>Fiestas privadas</li>
                 <li>Presentaciones especiales</li>
             </ul>
-     <a href="index.html#contacto?servicio=shows" class="btn-servicio">
-    Cotizar show
-</a>
+            <a href="index.html#contacto?servicio=shows" class="btn-servicio">
+                Cotizar show
+            </a>
         </article>
 
         <!-- Servicio 3 -->
@@ -87,9 +320,9 @@
                 <li>Eventos sociales</li>
                 <li>Coreografías personalizadas</li>
             </ul>
-  <a href="index.html#contacto?servicio=montaje" class="btn-servicio">
-    Cotizar montaje
-</a>
+            <a href="index.html#contacto?servicio=montaje" class="btn-servicio">
+                Cotizar montaje
+            </a>
         </article>
 
         <!-- Servicio 4 -->
@@ -130,27 +363,4 @@
             <svg viewBox="0 0 24 24">
                 <path fill="currentColor"
                     d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.35 3.608 1.325.975.975 1.263 2.242 1.325 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.35 2.633-1.325 3.608-.975.975-2.242 1.263-3.608 1.325-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.35-3.608-1.325-.975-.975-1.263-2.242-1.325-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.35-2.633 1.325-3.608.975-.975 2.242-1.263 3.608-1.325C8.416 2.175 8.796 2.163 12 2.163z"/>
-                <circle cx="12" cy="12" r="3.2" fill="currentColor"/>
-                <circle cx="18.406" cy="5.594" r="1.44" fill="currentColor"/>
-            </svg>
-        </a>
-    </div>
-
-    <p>&copy; 2026 Lucía Jiménez. Todos los derechos reservados.</p>
-</footer>
-
-<script src="script.js"></script>
-
-<!-- Botón flotante WhatsApp -->
-<a href="https://wa.me/50683881111"
-   class="whatsapp-float"
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Chatear por WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path fill="currentColor" d="M16.04 2.003c-7.732 0-14.02 6.29-14.02 14.02 0 2.47.645 4.89 1.87 7.03L2 30l7.13-1.87a13.94 13.94 0 006.91 1.82h.01c7.73 0 14.02-6.29 14.02-14.02 0-3.75-1.46-7.28-4.12-9.93a13.93 13.93 0 00-9.9-4.0zm0 25.48a11.46 11.46 0 01-5.84-1.6l-.42-.25-4.23 1.11 1.13-4.12-.28-.43a11.47 11.47 0 1110.64 5.29zm6.32-8.64c-.34-.17-2.03-1-2.35-1.12-.31-.12-.54-.17-.77.17-.23.34-.88 1.12-1.08 1.35-.2.23-.4.26-.74.09-.34-.17-1.43-.53-2.73-1.69-1-0.9-1.68-2.01-1.88-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.86-1.05-2.55-.28-.68-.57-.59-.77-.6h-.66c-.23 0-.6.09-.91.43-.31.34-1.2 1.17-1.2 2.86s1.23 3.32 1.4 3.55c.17.23 2.43 3.71 5.89 5.21.82.35 1.46.56 1.96.71.82.26 1.56.22 2.15.13.66-.1 2.03-.83 2.32-1.63.29-.8.29-1.49.2-1.63-.08-.14-.31-.23-.65-.4z"/>
-    </svg>
-</a>
-</body>
-</html>
-
+                <circle cx="12"

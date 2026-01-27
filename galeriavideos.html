@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Videos - Lucía Jiménez, Bailarina de Costa Rica</title>
+    <!-- Fuentes para consistencia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET Y VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #007bff;
+            --secondary: #ff69b4;
+            --text: #333;
+            --bg: #f9f9f9;
+            --font: 'Roboto', sans-serif;
+            --dark-bg: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            --accent: #f8b500;
+            --black: #000;
+            --white: #fff;
+        }
+
+        /* ===== ESTILOS GENERALES ===== */
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header y Nav (Fondo negro, tipografía naranja) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            border: none;
+        }
+
+        /* Main y Contenido */
+        main {
+            margin-top: 80px; /* Espacio para header fijo */
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-videos {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .hero-videos h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .hero-videos p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .container {
+            margin-top: 2rem;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .video-item {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .video-item:hover {
+            transform: scale(1.05);
+        }
+
+        .video-item iframe {
+             width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h3 {
+            margin: 0 0 10px;
+            color: var(--accent);
+        }
+
+        .video-info p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--black);
+            color: var(--white);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .hero-videos h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">Lucía Jiménez</div>
+            <ul class="nav-links">
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="timeline.html">Trayectoria</a></li>
+                <li><a href="galeriavideos.html">Videos</a></li>
+                <li><a href="preguntasfrecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="calculadoraservicios.html">Calculadora de servicios</a></li>
+                <li><a href="index.html">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-videos">
+            <h1>Galería de Videos</h1>
+            <p>Explora mis servicios a través de videos inspiradores</p>
+        </section>
+
+        <div class="container">
+            <h2>Galería de Videos</h2>
+            <p>Aquí puedes ver ejemplos de mis servicios en acción. Cada video representa un aspecto de mi trabajo como bailarina y docente.</p>
+            
+            <div class="gallery">
+                <!-- Clases presenciales grupales -->
+                <div class="video-item">
+                    <iframe
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Clases Presenciales Grupales</h3>
+                        <p>Una sesión dinámica de baile en grupo, perfecta para aprender y divertirse juntos.</p>
+                    </div>
+                </div>
+                
+                <!-- Clases presenciales privadas -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Clases Presenciales Privadas</h3>
+                        <p>Lección personalizada enfocada en técnicas individuales y mejora de habilidades.</p>
+                    </div>
+                </div>
+                
+                <!-- Shows de baile para eventos corporativos -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Shows de Baile para Eventos Corporativos</h3>
+                        <p>Performance energética para animar tu evento corporativo y motivar a tu equipo.</p>
+                    </div>
+                </div>
+                
+                <!-- Shows de baile para eventos privados -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Shows de Baile para Eventos Privados</h3>
+                        <p>Espectáculo personalizado para fiestas privadas, creando momentos inolvidables.</p>
+                    </div>
+                </div>
+                
+                <!-- Montaje coreográfico para bodas -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Montaje Coreográfico para Bodas</h3>
+                        <p>Baile de novios y coreografías románticas para hacer de tu boda un sueño.</p>
+                    </div>
+                </div>
+                
+                <!-- Montaje coreográfico general -->
+                <div class="video-item">
+                        <iframe
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>                    
+                        <div class="video-info">
+                        <h3>Montaje Coreográfico General</h3>
+                        <p>Diseño creativo de coreografías para cualquier ocasión especial.</p>
+                    </div>
+                </div>
+                
+                <!-- Asesoría y coaching para competidores -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+  a                     llowfullscreen>
+                    </iframe>                      
+                    <div class="video-info">
+                        <h3>Asesoría y Coaching para Competidores</h3>
+                        <p>Sesiones de coaching intensivas para prepararte y ganar en competencias.</p>
+                    </div>
+                </div>
+                
+                <!-- Clases online -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Clases Online</h3>
+                        <p>Aprende desde casa con clases virtuales interactivas y grabadas.</p>
+                    </div>
+                </div>
+                
+                <!-- Producción audiovisual -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Producción Audiovisual</h3>
+                        <p>Grabación y edición profesional de contenido de baile para promocionar tu talento.</p>
+                    </div>
+                </div>
+                
+                <!-- Asesoría en marketing digital -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Asesoría en Marketing Digital</h3>
+                        <p>Estrategias para promocionar tus servicios de baile en línea.</p>
+                    </div>
+                </div>
+                
+                <!-- Estrategia de lanzamiento -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>                    
+                    <div class="video-info">
+                        <h3>Estrategia de Lanzamiento</h3>
+                        <p>Planificación de lanzamientos exitosos para proyectos de baile.</p>
+                    </div>
+                </div>
+                
+                <!-- Community management y creación de contenido -->
+                <div class="video-item">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div class="video-info">
+                        <h3>Community Management y Creación de Contenido</h3>
+                        <p>Gestión de redes sociales y creación de contenido atractivo para bailarines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Lucía Jiménez. Todos los derechos reservados.</p>
+        <p>Sígueme en <a href="https://www.facebook.com/luciajimenezCR" target="_blank">Facebook</a></p>
+    </footer>
+</body>
+</html>

@@ -1,3 +1,4 @@
+/* ===== RESET Y VARIABLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +10,14 @@
     --secondary: #ff69b4;
     --text: #333;
     --bg: #f9f9f9;
-    --font: Arial, sans-serif;
+    --font: 'Roboto', sans-serif;
+    --dark-bg: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    --accent: #f8b500;
+    --black: #000;
+    --white: #fff;
 }
 
+/* ===== ESTILOS GENERALES ===== */
 body {
     font-family: var(--font);
     background: var(--bg);
@@ -19,58 +25,71 @@ body {
     line-height: 1.6;
 }
 
+/* Header y Nav (Fondo negro, tipografía naranja, posición fija) */
 header {
-    background: var(--primary);
-    padding: 1rem;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-nav {
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--accent);
+    font-weight: 700;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .nav-links a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
 }
 
 .menu-toggle {
     display: none;
     background: none;
-    color: #fff;
+    color: var(--white);
     font-size: 1.5rem;
     border: none;
 }
 
+/* Main y Contenido */
+main {
+    margin-top: 80px; /* Espacio para header fijo */
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Secciones y Formularios */
 section {
     padding: 2rem;
     max-width: 1100px;
     margin: auto;
-}
-
-#hero {
-    text-align: center;
-    color: #fff;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    padding: 4rem 2rem;
-}
-
-.cta-button {
-    background: var(--secondary);
-    color: #fff;
-    padding: 0.7rem 1.2rem;
-    border-radius: 5px;
-    text-decoration: none;
 }
 
 form {
@@ -78,29 +97,70 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin: 0 auto; /* Centrado horizontal */
 }
 
 input, textarea, select {
     padding: 0.6rem;
-    border-radius: 4px;
     border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 button {
     background: var(--primary);
-    color: #fff;
+    color: var(--white);
     padding: 0.7rem;
     border: none;
     cursor: pointer;
 }
 
+/* Footer Optimizado */
 footer {
-    background: var(--text);
-    color: #fff;
+    background: var(--black);
+    color: var(--white);
+    padding: 2rem 1rem;
     text-align: center;
-    padding: 1rem;
 }
 
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.footer-social a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--accent);
+}
+
+.footer-social svg {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+}
+
+.footer-text p {
+    margin-bottom: 0.5rem;
+}
+
+/* WhatsApp Flotante */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -112,98 +172,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.whatsapp-float svg {
-    width: 28px;
-    height: 28px;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-    }
-    .menu-toggle {
-        display: block;
-    }
-}
-.hero-servicios {
-    text-align: center;
-    padding: 60px 20px;
-    background: #f5f5f5;
-}
-
-.hero-servicios h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.servicios {
-    padding: 60px 20px;
-}
-
-.servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.servicio-card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-}
-
-.servicio-card h2 {
-    margin-bottom: 5px;
-}
-
-.servicio-subtitulo {
-    color: #777;
-    margin-bottom: 15px;
-}
-
-.servicio-card ul {
-    padding-left: 18px;
-    margin: 15px 0;
-}
-
-.btn-servicio {
-    margin-top: auto;
-    text-align: center;
-    padding: 12px;
-    background: #000;
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.btn-servicio:hover {
-    background: #333;
-}
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    background-color: #25D366;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
 
@@ -215,11 +185,117 @@ footer {
     width: 28px;
     height: 28px;
 }
+
+/* ===== ESTILOS PARA PÁGINAS ESPECÍFICAS ===== */
+
+/* Hero (usado en index.html) */
+#hero {
+    text-align: center;
+    color: var(--white);
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    padding: 4rem 2rem;
+}
+
+#hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Servicios (servicios.html - texto negro para legibilidad) */
+.hero-servicios {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f5f5f5;
+    color: var(--black);
+}
+
+.hero-servicios h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.hero-servicios p {
+    color: var(--black);
+}
+
+.servicios {
+    padding: 60px 20px;
+    color: var(--black);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.servicio-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    color: var(--black);
+}
+
+.servicio-card h2 {
+    margin-bottom: 5px;
+    color: var(--black);
+}
+
+.servicio-subtitulo {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.servicio-card p, .servicio-card ul {
+    color: var(--black);
+}
+
+.servicio-card ul {
+    padding-left: 18px;
+    margin: 15px 0;
+}
+
+.btn-servicio {
+    margin-top: auto;
+    text-align: center;
+    padding: 12px;
+    background: var(--black);
+    color: var(--white);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-servicio:hover {
+    background: #333;
+}
+
+/* Footer específico para servicios (sobrescrito por el general optimizado) */
 .footer {
     text-align: center;
     padding: 30px 20px;
-    background: #000;
-    color: #fff;
+    background: var(--black);
+    color: var(--white);
 }
 
 .footer-social {
@@ -227,7 +303,7 @@ footer {
 }
 
 .footer-social a {
-    color: #fff;
+    color: var(--white);
     margin: 0 10px;
     display: inline-block;
 }
@@ -235,4 +311,355 @@ footer {
 .footer-social svg {
     width: 24px;
     height: 24px;
+}
+
+/* Galería de Fotos y Videos (galeria.html, galeriavideos.html) */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.video-item, .photo-item {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.video-item:hover, .photo-item:hover {
+    transform: scale(1.05);
+}
+
+.video-item iframe, .photo-item img {
+    width: 100%;
+    height: 200px;
+    border: none;
+    object-fit: cover;
+}
+
+.video-info, .photo-info {
+    padding: 15px;
+}
+
+.video-info h3, .photo-info h3 {
+    margin: 0 0 10px;
+    color: var(--accent);
+}
+
+.video-info p, .photo-info p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Preguntas Frecuentes (preguntasfrecuentes.html) */
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    background: #f1f1f1;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #e9ecef;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background: #fafafa;
+}
+
+/* Calculadora de Servicios (calculadoraservicios.html) */
+.calculator {
+    text-align: center;
+}
+
+.calculator label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.calculator select, .calculator input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.calculator button {
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+.calculator button:hover {
+    background: #e6a400;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* ===== ACCESIBILIDAD ===== */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--accent);
+    color: var(--black);
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1001;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+.accessibility-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.accessibility-toggle:hover {
+    background: #e6a400;
+}
+
+.accessibility-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: var(--white);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    display: none;
+}
+
+.accessibility-panel[aria-hidden="false"] {
+    display: block;
+}
+
+.accessibility-panel h2 {
+    margin: 0 0 15px 0;
+    font-size: 1.2em;
+    color: var(--black);
+}
+
+.accessibility-panel button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+}
+
+/* ===== RESPONSIVIDAD ===== */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .nav-links {
+        gap: 1rem;
+    }
+    #hero h1 {
+        font-size: 2rem;
+    }
+    .galeria h1 {
+        font-size: 2rem;
+    }
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    .footer-content {
+        gap: 0.5rem;
+    }
+    .footer-social {
+        gap: 0.5rem;
+    }
+    .footer-social svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ===== TIMELINE UNIFICADO ===== */
+
+.timeline-section h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.timeline-section p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--black);
+    margin-bottom: 3rem;
+}
+
+/* Contenedor principal */
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Línea central */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: var(--accent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Item base */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    margin-bottom: 40px;
+}
+
+/* Izquierda */
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+/* Derecha */
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* Círculo */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border: 4px solid var(--black);
+    border-radius: 50%;
+    top: 30px;
+    z-index: 2;
+}
+
+.timeline-item.left::before {
+    right: -9px;
+}
+
+.timeline-item.right::before {
+    left: -9px;
+}
+
+/* Contenido */
+.timeline-content {
+    background: var(--white);
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.timeline-content h3 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.timeline-content p {
+    color: var(--black);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.timeline-content img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    max-height: 220px;
+    object-fit: cover;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .timeline::after {
+        left: 8px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 20px;
+        text-align: left;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+    }
+
+    .timeline-item::before {
+        left: 0;
+        right: auto;
+    }
 }

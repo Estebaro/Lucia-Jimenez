@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - Lucía Jiménez, Bailarina de Costa Rica</title>
+    <!-- Fuentes para consistencia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET Y VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #007bff;
+            --secondary: #ff69b4;
+            --text: #333;
+            --bg: #f9f9f9;
+            --font: 'Roboto', sans-serif;
+            --dark-bg: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            --accent: #f8b500;
+            --black: #000;
+            --white: #fff;
+        }
+
+        /* ===== ESTILOS GENERALES ===== */
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header y Nav (Fondo negro, tipografía naranja) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            border: none;
+        }
+
+        /* Main y Contenido */
+        main {
+            margin-top: 80px; /* Espacio para header fijo */
+            padding: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-faq {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .hero-faq h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .hero-faq p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .container {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 2rem;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            background: #f1f1f1;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            background: #fafafa;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--black);
+            color: var(--white);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .hero-faq h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">Lucía Jiménez</div>
+            <ul class="nav-links">
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="timeline.html">Trayectoria</a></li>
+                <li><a href="galeriavideos.html">Videos</a></li>
+                <li><a href="preguntasfrecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="calculadoraservicios.html">Calculadora de servicios</a></li>
+                <li><a href="index.html">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-faq">
+            <h1>Preguntas Frecuentes</h1>
+            <p>Descubre mis servicios y resuelve tus dudas</p>
+        </section>
+
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(0)">¿Qué tipos de clases ofreces?</div>
+                <div class="faq-answer" id="answer0">
+                    Ofrezco clases presenciales grupales y privadas, enfocadas en diversos estilos de baile. También tengo clases en línea para mayor comodidad.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(1)">¿Ofreces clases en línea?</div>
+                <div class="faq-answer" id="answer1">
+                    Sí, tengo clases en línea que incluyen grabaciones de alta calidad, asesoría en marketing digital, estrategias de lanzamiento y community management para promocionar tu contenido.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(2)">¿Puedes organizar shows de baile para eventos?</div>
+                <div class="faq-answer" id="answer2">
+                    Absolutamente. Organizo shows de baile para eventos corporativos y privados, adaptados a tus necesidades para hacer que tu evento sea inolvidable.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(3)">¿Qué incluye el montaje coreográfico para bodas?</div>
+                <div class="faq-answer" id="answer3">
+                    El montaje coreográfico para bodas incluye el baile de novios y otros elementos personalizados para hacer de tu día especial algo mágico y único.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(4)">¿Ofreces montaje coreográfico general?</div>
+                <div class="faq-answer" id="answer4">
+                    Sí, diseño montajes coreográficos generales para cualquier ocasión, desde presentaciones hasta eventos especiales, adaptados a tu estilo y visión.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(5)">¿Proporcionas asesoría y coaching para competidores?</div>
+                <div class="faq-answer" id="answer5">
+                    Claro, ofrezco asesoría y coaching personalizado para competidores de baile, ayudándote a mejorar tu técnica, confianza y estrategia para destacar en competencias.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(6)">¿Qué servicios de producción audiovisual ofreces?</div>
+                <div class="faq-answer" id="answer6">
+                    Incluye grabación profesional de clases y contenido, edición de videos y producción de material audiovisual de alta calidad para promocionar tus habilidades o eventos.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(7)">¿Ayudas con marketing digital y estrategias de lanzamiento?</div>
+                <div class="faq-answer" id="answer7">
+                    Sí, te ayudo con asesoría en marketing digital, estrategias de lanzamiento para tus proyectos de baile, y community management para gestionar y crear contenido atractivo en redes sociales.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(8)">¿Cómo puedo contactarte o reservar un servicio?</div>
+                <div class="faq-answer" id="answer8">
+                    Puedes contactarme a través de mi página de Facebook: <a href="https://www.facebook.com/luciajimenezCR" target="_blank">Lucía Jiménez CR</a>, o enviarme un mensaje directo para discutir detalles y reservar.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Lucía Jiménez. Todos los derechos reservados.</p>
+        <p>Sígueme en <a href="https://www.facebook.com/luciajimenezCR" target="_blank">Facebook</a></p>
+    </footer>
+
+    <script>
+        function toggleAnswer(index) {
+            const answer = document.getElementById('answer' + index);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

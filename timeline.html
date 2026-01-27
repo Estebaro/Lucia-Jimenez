@@ -51,249 +51,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Favicon (agrega uno real) -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        /* Reset básico y mejores prácticas de accesibilidad */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Skip link para accesibilidad */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: #f8b500;
-            color: #000;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 1001;
-        }
-
-        .skip-link:focus {
-            top: 6px;
-        }
-
-        /* Header y Nav (consistente con galería) */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #f8b500;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover, .nav-links a:focus {
-            color: #f8b500;
-            outline: 2px solid #f8b500;
-            outline-offset: 2px;
-        }
-
-        /* Main */
-        main {
-            margin-top: 80px;
-            padding: 2rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .timeline-section h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            text-align: center;
-            color: #f8b500;
-            margin-bottom: 1rem;
-            animation: fadeIn 1s ease-in;
-        }
-
-        .timeline-section p {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 3rem;
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background: #f8b500;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            z-index: 1;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background: inherit;
-            width: 50%;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-
-        .timeline-item.left {
-            left: 0;
-        }
-
-        .timeline-item.right {
-            left: 50%;
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -17px;
-            background: #f8b500;
-            border: 4px solid #1a1a1a;
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-item.right::after {
-            left: -16px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-
-        .timeline-content h3 {
-            font-family: 'Dancing Script', cursive;
-            color: #f8b500;
-            margin-bottom: 10px;
-        }
-
-        .timeline-content p {
-            color: #ccc;
-        }
-
-        .timeline-content img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 10px;
-            max-height: 200px;
-            object-fit: cover;
-        }
-
-        /* Footer */
-        .footer {
-            background: #000;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-            color: #ccc;
-        }
-
-        /* Animaciones */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsividad */
-        @media (max-width: 768px) {
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item.left, .timeline-item.right {
-                left: 0;
-            }
-
-            .timeline-item::after, .timeline-item.right::after {
-                left: 15px;
-            }
-
-            .timeline-item.right::after {
-                left: 15px;
-            }
-
-            .nav {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .timeline-section h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <!-- CSS Referenciado -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -302,12 +61,15 @@
         <nav class="nav">
             <div class="logo">Lucía Jiménez</div>
             <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="index.html#contacto">Contacto</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="timeline.html">Trayectoria</a></li>
+                <li><a href="galeriavideos.html">Videos</a></li>
+                <li><a href="preguntasfrecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="calculadoraservicios.html">Calculadora de servicios</a></li>
+                <li><a href="index.html">Contacto</a></li>
             </ul>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
         </nav>
     </header>
 
@@ -319,80 +81,163 @@
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>2015: Inicio en la Danza</h3>
-                        <p>Comenzó su formación en la Escuela Nacional de Danza, especializándose en ballet clásico y contemporáneo.</p>
-                        <img src="img/timeline1.jpg" alt="Lucía en sus primeros años de formación en danza" loading="lazy">
+                        <h3>2000-2002:</h3>
+                        <p>Cierra su etapa como gimnasta olímpica (deporte que practicó desde los 6 hasta los 14 años), lo cual le otorgó la base técnica y la disciplina de competencia.</p>
+                        <img src="img/timeline1.jpg" alt="Lucía como gimnasta olímpica" loading="lazy">
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>2018: Primer Show Profesional</h3>
-                        <p>Participó en su primer espectáculo profesional en el Teatro Real de Madrid, recibiendo elogios por su coreografía.</p>
-                        <img src="img/timeline2.jpg" alt="Lucía en su primer show profesional" loading="lazy">
+                        <h3>2003-2006:</h3>
+                        <p>Inicia su formación formal en danza, explorando disciplinas como Jazz, Ballet y Hip-Hop.</p>
+                        <img src="img/timeline2.jpg" alt="Lucía iniciando formación en danza" loading="lazy">
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>2020: Clases en Línea Durante la Pandemia</h3>
-                        <p>Adaptándose a los tiempos, comenzó a impartir clases virtuales, llegando a estudiantes de todo el mundo.</p>
-                        <img src="img/timeline3.jpg" alt="Clases en línea de Lucía durante la pandemia" loading="lazy">
+                        <h3>2007-2008:</h3>
+                        <p>Obtiene becas de estudio en el prestigioso Edge Performing Arts Center en Los Ángeles, California, lo que internacionaliza su técnica.</p>
+                        <img src="img/timeline3.jpg" alt="Lucía en estudios en Los Ángeles" loading="lazy">
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>2022: Premio Nacional de Danza</h3>
-                        <p>Ganó el Premio Nacional de Danza Contemporánea por su innovadora coreografía en "Sueños de Movimiento".</p>
-                        <img src="img/timeline4.jpg" alt="Lucía recibiendo el Premio Nacional de Danza" loading="lazy">
+                        <h3>2009-2010:</h3>
+                        <p>Empieza a destacar en la escena local de danza contemporánea y ritmos latinos en Costa Rica.</p>
+                        <img src="img/timeline4.jpg" alt="Lucía destacando en escena local" loading="lazy">
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>2024: Eventos Corporativos</h3>
-                        <p>Expandió su carrera a eventos corporativos, ofreciendo performances personalizadas para empresas.</p>
-                        <img src="img/timeline5.jpg" alt="Lucía en un evento corporativo" loading="lazy">
+                        <h3>2012:</h3>
+                        <p>Se corona como Campeona Nacional de Salsa en la categoría Solista Femenino y alcanza el 6.º lugar en el World Salsa Open.</p>
+                        <img src="img/timeline5.jpg" alt="Lucía como Campeona Nacional de Salsa" loading="lazy">
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>2026: Futuros Proyectos</h3>
-                        <p>Preparándose para una gira internacional y el lanzamiento de su propio estudio de danza.</p>
-                        <img src="img/timeline6.jpg" alt="Lucía planeando futuros proyectos" loading="lazy">
+                        <h3>2013:</h3>
+                        <p>Logra el Subcampeonato Mundial en el World Salsa Open (Solista Femenino) y el 2.º lugar en el Festival Latino de Trinidad.</p>
+                        <img src="img/timeline6.jpg" alt="Lucía en Subcampeonato Mundial" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2014:</h3>
+                        <p>Participa como bailarina profesional en la primera temporada de Dancing with the Stars (DWTS) Costa Rica.</p>
+                        <img src="img/timeline7.jpg" alt="Lucía en DWTS Costa Rica" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2015:</h3>
+                        <p>Hito histórico: Se corona Campeona Mundial en el World Salsa Summit (Miami) en la categoría Solista Femenino, tras cuatro años de intentos.</p>
+                        <img src="img/timeline8.jpg" alt="Lucía como Campeona Mundial" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2016:</h3>
+                        <p>Ganadora de la 3.ª temporada de DWTS junto al chef Daniel Vargas. Este año marca su consolidación como figura mediática.</p>
+                        <img src="img/timeline9.jpg" alt="Lucía ganadora de DWTS" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2017:</h3>
+                        <p>Campeona en el Panamá Salsa Fest. Continúa su rol como coreógrafa en formatos de Teletica como Tu Cara Me Suena.</p>
+                        <img src="img/timeline10.jpg" alt="Lucía en Panamá Salsa Fest" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2018:</h3>
+                        <p>Se corona Campeona Mundial en el World Salsa Summit en dos categorías: Salsa y Just Bachata.</p>
+                        <img src="img/timeline11.jpg" alt="Lucía Campeona Mundial en dos categorías" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2019:</h3>
+                        <p>Participa en la producción de Chicago El Musical en Costa Rica, demostrando su versatilidad como actriz y cantante.</p>
+                        <img src="img/timeline12.jpg" alt="Lucía en Chicago El Musical" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2020:</h3>
+                        <p>Alcanza su título mundial número 11 al ganar el Online World Salsa Solo Championship durante la pandemia.</p>
+                        <img src="img/timeline13.jpg" alt="Lucía en campeonato online" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2021-2022:</h3>
+                        <p>Funda y dirige sus propias academias y grupos: Las Divas de Lucía, Latin Stars Academy y Latinboom. En 2022, es Campeona Nacional de Latin Ballroom Profesional (FECOBADE).</p>
+                        <img src="img/timeline14.jpg" alt="Lucía fundando academias" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2023:</h3>
+                        <p>Se mantiene como la bailarina con más participaciones en formatos de concurso de baile en Costa Rica (6 temporadas de DWTS).</p>
+                        <img src="img/timeline15.jpg" alt="Lucía en concursos de baile" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2024:</h3>
+                        <p>Participa en la 1.ª temporada de Mira Quién Baila (MQB) Costa Rica con Luis Montalbert, obteniendo el 6.º lugar.</p>
+                        <img src="img/timeline16.jpg" alt="Lucía en MQB temporada 1" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2025:</h3>
+                        <p>Compite en la 2.ª temporada de Mira Quién Baila, logrando el 2.º lugar junto al presentador Ítalo Marenco, a pesar de sufrir un fuerte accidente durante los ensayos a finales de año.</p>
+                        <img src="img/timeline17.jpg" alt="Lucía en MQB temporada 2" loading="lazy">
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2026:</h3>
+                        <p>Se posiciona como mentora de nuevas generaciones a través de su academia, integrando tecnología y danza, y manteniendo su estatus como la bailarina costarricense con más títulos mundiales (12 títulos hasta la fecha).</p>
+                        <img src="img/timeline18.jpg" alt="Lucía como mentora" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 Lucía Jiménez. Todos los derechos reservados.</p>
-    </footer>
+<!-- Footer Optimizado -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-social">
+            <a href="https://www.facebook.com/luciajimenezCR" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Lucía Jiménez">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/luciajimenezb/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Lucía Jiménez">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.35 3.608 1.325.975.975 1.263 2.242 1.325 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.35 2.633-1.325 3.608-.975.975-2.242 1.263-3.608 1.325-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.35-3.608-1.325-.975-.975-1.263-2.242-1.325-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.35-2.633 1.325-3.608.975-.975 2.242-1.263 3.608-1.325C8.416 2.175 8.796 2.163 12 2.163z"/>
+                    <circle cx="12" cy="12" r="3.2" fill="currentColor"/>
+                    <circle cx="18.406" cy="5.594" r="1.44" fill="currentColor"/>
+                </svg>
+            </a>
+            <a href="https://wa.me/50683881111" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Lucía Jiménez">
+                <svg viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M16.04 2.003c-7.732 0-14.02 6.29-14.02 14.02 0 2.47.645 4.89 1.87 7.03L2 30l7.13-1.87a13.94 13.94 0 006.91 1.82h.01c7.73 0 14.02-6.29 14.02-14.02 0-3.75-1.46-7.28-4.12-9.93a13.93 13.93 0 00-9.9-4.0zm0 25.48a11.46 11.46 0 01-5.84-1.6l-.42-.25-4.23 1.11 1.13-4.12-.28-.43a11.47 11.47 0 1110.64 5.29zm6.32-8.64c-.34-.17-2.03-1-2.35-1.12-.31-.12-.54-.17-.77.17-.23.34-.88 1.12-1.08 1.35-.2.23-.4.26-.74.09-.34-.17-1.43-.53-2.73-1.69-1-0.9-1.68-2.01-1.88-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.86-1.05-2.55-.28-.68-.57-.59-.77-.6h-.66c-.23 0-.6.09-.91.43-.31.34-1.2 1.17-1.2 2.86s1.23 3.32 1.4 3.55c.17.23 2.43 3.71 5.89 5.21.82.35 1.46.56 1.96.71.82.26 1.56.22 2.15.13.66-.1 2.03-.83 2.32-1.63.29-.8.29-1.49.2-1.63-.08-.14-.31-.23-.65-.4z"/>
+                </svg>
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2026 Lucía Jiménez. Todos los derechos reservados.</p>
+            <p>Horario de atención: Lunes a sábado de 8 am a 5 pm</p>
+        </div>
+    </div>
+</footer>
 
-    <script>
-        // JavaScript vanilla para animaciones y accesibilidad (mejores prácticas de ciberseguridad: no eval, no innerHTML dinámico)
-        document.addEventListener('DOMContentLoaded', function() {
-            const timelineItems = document.querySelectorAll('.timeline-item');
-
-            // Función para animar al hacer scroll (usando Intersection Observer para rendimiento)
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            timelineItems.forEach(item => {
-                observer.observe(item);
-            });
-
-            // Navegación por teclado para accesibilidad
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Tab') {
-                    // Asegurar foco visible
-                    document.body.style.outline = 'none';
-                }
-            });
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -19,10 +19,7 @@
 
 /* ===== ESTILOS GENERALES ===== */
 body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+    background: #000;
 }
 
 /* Header y Nav (Fondo negro, tipografía naranja, posición fija) */
@@ -36,32 +33,29 @@ header {
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    color: var(--accent);
-    font-weight: 700;
+    color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .nav-links {
     list-style: none;
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 400;
-    transition: color 0.3s;
+    color: #fff;
+  text-decoration: none;
 }
 
 .nav-links a:hover {
@@ -70,10 +64,11 @@ header {
 
 .menu-toggle {
     display: none;
-    background: none;
-    color: var(--white);
-    font-size: 1.5rem;
-    border: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* Main y Contenido */
@@ -186,6 +181,14 @@ footer {
     height: 28px;
 }
 
+.ig-button:hover {
+  transform: scale(1.12);
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+
+.ig-button:active {
+  transform: scale(1.05);
+}
 /* ===== ESTILOS PARA PÁGINAS ESPECÍFICAS ===== */
 
 /* Hero (usado en index.html) */
@@ -641,25 +644,26 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
 
-    .timeline::after {
-        left: 8px;
-    }
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
 
-    .timeline-item {
-        width: 100%;
-        padding-left: 40px;
-        padding-right: 20px;
-        text-align: left;
-    }
+    /* oculto */
+    display: none;
+  }
 
-    .timeline-item.left,
-    .timeline-item.right {
-        left: 0;
-    }
-
-    .timeline-item::before {
-        left: 0;
-        right: auto;
-    }
+  .nav-links.active {
+    display: flex;
+  }
 }

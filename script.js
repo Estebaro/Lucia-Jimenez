@@ -18,20 +18,24 @@ if (document.getElementById('contact-form')) {
 }
 // Menú de Accesibilidad
 document.addEventListener('DOMContentLoaded', function() {
-    const toggle = document.getElementById('accessibility-toggle');
-    const panel = document.getElementById('accessibility-menu');
-    const closeBtn = document.getElementById('close-accessibility');
-    const body = document.body;
+    const toggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const links = navLinks.querySelectorAll('a');
 
-    // Toggle panel
-    toggle.addEventListener('click', function() {
-        const isHidden = panel.getAttribute('aria-hidden') === 'true';
-        panel.setAttribute('aria-hidden', !isHidden);
-    });
+toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('active');
+    toggle.classList.toggle('active');
+    toggle.setAttribute('aria-expanded', isOpen);
+});
 
-    closeBtn.addEventListener('click', function() {
-        panel.setAttribute('aria-hidden', 'true');
+// Cerrar al hacer click en un link
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', false);
     });
+});
 
     // Funciones de accesibilidad
     document.getElementById('increase-font').addEventListener('click', function() {

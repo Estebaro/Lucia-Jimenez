@@ -63,12 +63,23 @@ header {
 }
 
 .menu-toggle {
-    display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
+        display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.4rem;
+}
+
+.menu-toggle span{
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 /* Main y Contenido */
@@ -558,8 +569,35 @@ button {
         flex-direction: column;
         padding: 1rem;
     }
+    .menu-toggle {
+        display: block;
+    }
+
     .nav-links {
         gap: 1rem;
+        display: none; /* oculto por defecto en móvil */
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        position: absolute;
+        top: 64px;
+        left: 0;
+        padding: 1rem 0.8rem;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.6rem 1rem;
+        width: 100%;
     }
     #hero h1 {
         font-size: 2rem;
